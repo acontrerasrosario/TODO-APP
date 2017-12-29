@@ -244,5 +244,26 @@ namespace WebApiTodoApp.Controllers.api
             }
         }
 
+
+        [HttpGet]
+        [BasicAuth]
+        [AcceptVerbs("GET")]
+        public HttpResponseMessage getAllTags()
+        {
+            try
+            {
+                using (var context = new TodoAppContext())
+                {
+                    var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
+                    var result = context.tags.Where(n => n.createdBy == user.userID).FirstOrDefault();
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+            }
+        }
+
     }
 }
