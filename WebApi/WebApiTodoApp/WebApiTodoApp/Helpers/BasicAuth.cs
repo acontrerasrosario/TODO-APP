@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Web;
 using System.Web.Http.Controllers;
-using WebApiTodoApp.Helpers;
 using WebApiTodoApp.Models;
 
 namespace WebApiTodoApp.Helpers
 {
-    class BasicAuthAttribute : System.Web.Http.Filters.AuthorizationFilterAttribute
+  class BasicAuthAttribute : System.Web.Http.Filters.AuthorizationFilterAttribute
     {
         public override void OnAuthorization(HttpActionContext actionContext)
         {
