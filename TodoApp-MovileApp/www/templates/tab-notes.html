@@ -1,6 +1,53 @@
 <ion-view view-title="Notes">
-  <ion-content class="padding">
-    {{message}}
+  <script id="templates/modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">New Contact</h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Title</span>
+              <input ng-model="newNote.title" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Description</span>
+              <textarea ng-model="newNote.description" cols="6" rows="6"></textarea>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Due Date</span>
+              <input ng-model="newNote.dueDate" type="datetime">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Color</span>
+              <select>
+                <option value="#f44336"> Red </option>
+                <option value="#03a9f4"> Blue </option>
+                <option value="#ffeb3b"> Yellow </option>
+                <option value="#8bc34a"> Green </option>
+              </select>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Remind Me</span>
+              <select>
+                <option value="0"> 15 Mins before </option>
+                <option value="1"> 30 Mins before </option>
+                <option value="2"> 1 Hour before </option>
+                <option value="3"> 2 Hours before </option>
+              </select>
+            </label>
+            <button class="button button-full button-positive" ng-click="">Create new Note</button>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
 
+
+  <ion-content class="padding">
+    <div class="bar bar-header">
+      <div class="h1 title">Mis notas</div>
+      <button class="button button-clear button-positive ion-plus-circled" ng-click="modal.show()"> </button>
+    </div>
   </ion-content>
 </ion-view>
