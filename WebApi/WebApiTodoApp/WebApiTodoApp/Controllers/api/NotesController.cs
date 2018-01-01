@@ -1,18 +1,17 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Security.Cryptography;
-using System.Text;
-using System.Web.Http;
-using WebApiTodoApp.Models;
-using WebApiTodoApp.Helpers;
 using System.Web;
-using System.Web.Http.Controllers;
+using System.Web.Http;
+using System.Web.Http.Cors;
+using WebApiTodoApp.Helpers;
+using WebApiTodoApp.Models;
 
 namespace WebApiTodoApp.Controllers.api
 {
-    public class NotesController : ApiController
+  [EnableCors(origins: "*", headers: "*", methods: "*")]
+  public class NotesController : ApiController
     {
         public class newNoteDTO
         {
