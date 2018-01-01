@@ -15,7 +15,8 @@
             name  : null,
             lastName  : null,
             email  : null,
-            isAuthenticated : false
+            isAuthenticated : false,
+            basicTkn : null
         };
 
         var LogIn = (Identifier,Password,OnSuccess,OnError)=>{
@@ -27,6 +28,7 @@
                 $http.post(API_ROUTE+'/api/users/SignIn',credentials).then((e)=>{
                     currentIdentity = e.data;
                     currentIdentity.isAuthenticated = true;
+                    $http.defaults.headers.common.Authorization = currentIdentity.basicTkn;
                     if (angular.isFunction(OnSuccess)) OnSuccess(e);
                 },(e)=>{
                     if (angular.isFunction(OnError)) OnError(e);
@@ -35,11 +37,26 @@
             }else throw 'Missing Identifier and/or password';
         }
 
+        var signUp = (name,password,lastName,email,username,OnSuccess,OnError)=>{
+            var newUser = {
+                "name":name,
+                "password":password,
+                "lastName":lastName,
+                "email":email,
+                "username":username
+            }
+            $http.post(API_ROUTE+'/api/users/SignUp',newUser).then((e)=>{
+                if (angular.isFunction(OnSuccess)) OnSuccess(e);
+            },(e)=>{
+                if (angular.isFunction(OnError)) OnError(e);
+            });
+        }
 
     
         var AuthService = {
             User : currentIdentity,
-            LogIn : LogIn
+            LogIn : LogIn,
+            SignUp:signUp
         }
         return AuthService;
     }

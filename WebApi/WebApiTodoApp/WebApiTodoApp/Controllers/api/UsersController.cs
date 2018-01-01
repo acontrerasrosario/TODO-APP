@@ -70,7 +70,7 @@ namespace WebApiTodoApp.Controllers.api
         return false;
       }
     }
-    [HttpGet]
+    [HttpGet,BasicAuth]
     public object helloworld()
     {
       return "HelloWoerl";
@@ -125,6 +125,7 @@ namespace WebApiTodoApp.Controllers.api
             string currPassword = GetMd5Hash(md5Hash, requestUser.password);
 
             if (!VerifyMd5Hash(md5Hash, requestUser.password, user.password)) return Request.CreateResponse(HttpStatusCode.NotFound);
+            var BASIC = CryptographyService.EncryptValue($"{user.username}:{user.password}");
 
             var result = new
             {
@@ -132,9 +133,9 @@ namespace WebApiTodoApp.Controllers.api
               name = user.name,
               lastName = user.lastName,
               email = user.email,
+              basicTkn = BASIC
             };
-            var BASIC = CryptographyService.EncryptValue($"{user.username}:{user.password}");
-            HttpContext.Current.Response.AppendHeader("Basic", BASIC);
+            //HttpContext.Current.Response.AppendHeader("Basic", BASIC);
             //Request.Headers.Add("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes($"{user.username}:{user.password}")));
             return Request.CreateResponse(HttpStatusCode.OK, result);
           }
