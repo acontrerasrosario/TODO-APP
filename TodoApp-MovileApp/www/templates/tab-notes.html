@@ -1,6 +1,9 @@
 <ion-view view-title="Notes">
   <ion-content class="padding">
-    {{message}}
-
+    <div class="card">
+      <div ng-repeat="note in Notes" class="item item-text-wrap">
+        {{note.title}}
+      </div>
+    </div>
   </ion-content>
 </ion-view>

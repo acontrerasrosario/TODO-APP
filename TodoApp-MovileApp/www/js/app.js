@@ -23,8 +23,10 @@ angular.module('TodoAppIntec', ['ionic'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
 
+  $httpProvider.defaults.headers['Access-Control-Allow-Origin'] = '*';
+  $httpProvider.defaults.withCredentials = true;
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
