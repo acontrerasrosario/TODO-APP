@@ -345,3 +345,5 @@ C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\o
 C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\obj\Release\WebApiTodoApp.csproj.CoreCompileInputs.cache
 C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\obj\Release\WebApiTodoApp.dll
 C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\obj\Release\WebApiTodoApp.pdb
+C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\System.Web.Http.Cors.dll
+C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\System.Web.Http.Cors.xml
