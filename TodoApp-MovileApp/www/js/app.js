@@ -69,7 +69,18 @@ angular.module('TodoAppIntec', ['ionic'])
       }
     }
   })
-
+  .state('login', {
+    cache: false,
+    url: '/login',
+    templateUrl: 'templates/Login.html',
+    controller: 'loginController'
+  })
+  .state('SignUp', {
+    cache: false,
+    url: '/signup',
+    templateUrl: 'templates/SignUp.html',
+    controller: 'SignUpController'
+  })
   .state('tab.aboutUs', {
     url: '/aboutUs',
     views: {
