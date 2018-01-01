@@ -12,7 +12,7 @@ using WebApiTodoApp.Models;
 
 namespace WebApiTodoApp.Controllers.api
 {
-  [EnableCors(origins: "http://localhost:8100", headers: "*", methods: "*")]
+  [EnableCors(origins: "*", headers: "*", methods: "*")]
   public class UsersController : ApiController
   {
 
