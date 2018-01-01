@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="WebApiTodoApp.Models.TodoAppContext-Web.config Connection String" description="WebApiTodoApp.Models.TodoAppContext Connection String used in web.config by the application to access the database." defaultValue="WebApiTodoApp.Models.TodoAppContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Emilio\ -\ Dev\\source\\repos\\TODO-APP\\WebApi\\WebApiTodoApp\\WebApiTodoApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WebApiTodoApp.Models.TodoAppContext']/@connectionString" />
+  </parameter>
+</parameters>
