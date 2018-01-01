@@ -269,3 +269,7 @@ WebApi/WebApiTodoApp/WebApiTodoApp/obj/Release/WebApiTodoApp.csproj.FileListAbso
 WebApi/WebApiTodoApp/WebApiTodoApp/Helpers/BasicAuth.cs
 WebApi/WebApiTodoApp/WebApiTodoApp/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
 WebApi/WebApiTodoApp/WebApiTodoApp/bin/WebApiTodoApp.dll
+*.config
+WebApi/WebApiTodoApp/.vs/WebApiTodoApp/v15/.suo
+*.config
+WebApi/WebApiTodoApp/.vs/WebApiTodoApp/v15/.suo
