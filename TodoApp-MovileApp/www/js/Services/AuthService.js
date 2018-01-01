@@ -52,7 +52,7 @@
             });
         }
 
-    
+
         var AuthService = {
             User : currentIdentity,
             LogIn : LogIn,
