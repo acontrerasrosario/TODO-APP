@@ -3,8 +3,13 @@ angular.module("TodoAppIntec")
   // Addig the  controller function
   // to the context module
   .controller('NotesCtrl', NotesCtrl);
+<<<<<<< HEAD
 NotesCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal','$http', 'Configs','ionicDatePicker'];
 function NotesCtrl($scope, people, $ionicModal,$http,configs,ionicDatePicker ) {
+=======
+NotesCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal','$http', 'Configs', '$rootScope'];
+function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope) {
+>>>>>>> 987b0870ac5e568abfd9b7d531e630797b4b4709
   $scope.message = "work";
 
   $scope.newNote = {
@@ -35,12 +40,12 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,ionicDatePicker ) {
       //     console.log('error',response);
       //   }
       // );
-  
       $scope.newNote.id = $scope.MyNotes.length+1;
       $scope.MyNotes.push($scope.newNote);
+      $rootScope.Notes = $scope.MyNotes;
       $scope.newNote = {};
       $scope.modalCreate.hide();
-
+      console.log('rootscope',$rootScope.Notes);
   }
   var ipObj1 = {
     callback: function (val) {  //Mandatory 
@@ -67,10 +72,15 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,ionicDatePicker ) {
   $scope.ViewDetails = (note) => {
     $scope.noteToUpdate = note;
     $scope.openModalDetails();
+    console.log('rootscope',$rootScope.Notes);
+    
   }
 
   $scope.deleteNote = () => {
     $scope.MyNotes  = _.without($scope.MyNotes, $scope.noteToUpdate);
+    $rootScope.Notes =  $scope.MyNotes;
+    console.log('rootscope',$rootScope.Notes);
+
   }
 
   $ionicModal.fromTemplateUrl('templates/createNote.html', {
