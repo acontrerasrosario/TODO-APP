@@ -13,14 +13,17 @@
         <h2>{{note.title}}</h2>
         <p>{{note.description}}</p>
         <div class="item item-image">
-          <img src="cover.jpg">
+          <img ng-if="note.color == '#f44336'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Solid_blue.svg/225px-Solid_blue.svg.png">
+          <img ng-if="note.color == '#03a9f4'" src="https://euimages.urbanoutfitters.com/is/image/UrbanOutfittersEU/5139633640050_060_s">
+          <img ng-if="note.color == '#ffeb3b'" src="https://lh3.googleusercontent.com/nhzkOTPaoWAYfO-LeklB_kPd5bAqm43D87Q3eHlK3alIse8rgrYPE74epbbbZ2b4EsY=w300">
+          <img ng-if="note.color == '#8bc34a'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Flag_of_Libya_%281977-2011%29.svg/2000px-Flag_of_Libya_%281977-2011%29.svg.png">
         </div>
 
         <a class="item item-icon-left assertive" href="#">
-          <i class="icon ion-ios-calculator" ng-if="note.color == '#8bc34a'"></i>
-          <i class="icon ion-ios-plus-circled" ng-if="note.color == '#8bc34a'"></i>
-          <i class="icon ion-ios-person-add" ng-if="note.color == '#8bc34a'"></i>
-           <i class="icon ion-music-note" ng-if="note.color == '#8bc34a'"></i>
+          <i class="icon ion-ios-americanfootball" ng-if="note.color == '#8bc34a'"></i>
+          <i class="icon ion-ios-albums" ng-if="note.color == '#8bc34a'"></i>
+          <i class="icon ion-ios-alarm-outline" ng-if="note.color == '#8bc34a'"></i>
+           <i class="icon ion-ios-analytics-outline" ng-if="note.color == '#8bc34a'"></i>
            {{note.title}}
          </a>
       </ion-item>
