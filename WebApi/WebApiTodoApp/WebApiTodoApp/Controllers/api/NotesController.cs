@@ -37,6 +37,7 @@ namespace WebApiTodoApp.Controllers.api
         [BasicAuth]
 <<<<<<< HEAD
 =======
+        [AcceptVerbs("GET"),EnableCors("*", "*", "*")]
 >>>>>>> origin/BRAWNY
         public HttpResponseMessage getAllNotes()
         {
