@@ -51,10 +51,6 @@
                 if (angular.isFunction(OnError)) OnError(e);
             });
         }
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/BRAWNY
 
         var AuthService = {
             User : currentIdentity,
