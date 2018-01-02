@@ -11,6 +11,7 @@ namespace WebApiTodoApp
     {
       // Web API configuration and services
       config.EnableCors();
+      
       // Web API routes
       config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
       /**/

@@ -8,7 +8,7 @@
     factory.$inject = ['$http'];
 
     function factory($http) {
-        this.API_ROUTE = 'https://todoapp-intec.azurewebsites.net/';
+        this.API_ROUTE = 'http://todoapp-intec.azurewebsites.net/';
 
 
 
