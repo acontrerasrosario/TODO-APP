@@ -18,7 +18,7 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs) {
 
   $scope.MyNotes= [];
 
-  $http.get(configs.API_ROUTE+'getAllNotes/').then(
+  $http.get(configs.API_ROUTE+'api/notes/getAllNotes').then(
     (response)=> { console.log('success',response)},
     (response) => {
       console.log('error',response);

@@ -1,0 +1,33 @@
+<ion-view view-title="Login">
+    <ion-content>
+    <form name="myForm" novalidate>
+      <div class="padding logo">
+          <img src="img/ionic.png">
+          <div class="padding">Use your credentials to log into your account</div>
+      </div>
+      <div class="list">
+          <label class="item item-input">
+            <span class="input-label">User Name</span>
+            <input type="text" name="username" autocomplete="off" ng-model="user.credential" required>
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" name="password" autocomplete="off" ng-model="user.password" required>
+          </label>
+        </div>
+      
+      <div class="padding errors">
+          <p ng-show="myForm.username.$error.required">* Username is required</p>
+          <p ng-show="myForm.password.$error.required">* Password is required</p>
+      </div>
+  
+      <div class="padding">
+        <button class="button button-block button-custom" ng-disabled="myForm.$invalid" ng-click="LogIn()">Sign-In</button>
+        <button class="button button-block button-custom"  ng-click="RedirectSignUp()">Sign-Up</button>
+          <!-- <p class="text-center">
+            <a href="#/forgot-password">Forgot password</a>
+          </p> -->
+      </div>
+      </form>
+    </ion-content>
+  </ion-view>

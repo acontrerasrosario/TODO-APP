@@ -35,10 +35,7 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpGet]
         [BasicAuth]
-<<<<<<< HEAD
-=======
         [AcceptVerbs("GET"),EnableCors("*", "*", "*")]
->>>>>>> origin/BRAWNY
         public HttpResponseMessage getAllNotes()
         {
             try
@@ -155,7 +152,7 @@ namespace WebApiTodoApp.Controllers.api
                     if (user == null) return Request.CreateResponse(HttpStatusCode.Unauthorized);
 
                     var c = context.notes.Where(n => n.noteID == noteID && n.createdBy == user.userID).FirstOrDefault();
-                    
+
                     if (c == null) return Request.CreateResponse(HttpStatusCode.NotFound);
                     context.notes.Remove(c);
                     context.SaveChanges();
