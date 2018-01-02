@@ -13,11 +13,10 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs) {
             "type":"1",
             "dueDate":null,
             "color":null,
-            "remindMe":null,
+            "remindMe":1,
         }
 
   $scope.MyNotes= [];
-
 
   $http.get(configs.API_ROUTE+'getAllNotes/').then(
     (response)=> { console.log('success',response)},
@@ -38,18 +37,38 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs) {
       );
   }
 
-  $ionicModal.fromTemplateUrl('templates/modal.html', {
+  $scope.ViewDetails = (note) => {
+    $scope.noteToUpdate = note;
+    $scope.openModalDetails();
+  }
+
+  $ionicModal.fromTemplateUrl('templates/createNote.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modal = modal;
+    $scope.modalCreate = modal;
   });
-  $scope.openModal = function() {
-    $scope.modal.show();
+  $scope.openModalCreate = function() {
+    $scope.modalCreate.show();
   };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
+  $scope.closeModalCreate = function() {
+    $scope.modalCreate.hide();
   };
+
+  $ionicModal.fromTemplateUrl('templates/ViewDetails.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modalDetails = modal;
+  });
+  $scope.openModalDetails = function() {
+    $scope.modalDetails.show();
+  };
+  $scope.closeModalDetails = function() {
+    $scope.modalDetails.hide();
+  };
+
+
 
 
 }
