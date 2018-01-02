@@ -35,9 +35,12 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs) {
       //     console.log('error',response);
       //   }
       // );
+      if ($scope.newNote = {})
       $scope.newNote.id = $scope.MyNotes.length+1;
       $scope.MyNotes.push($scope.newNote);
       $scope.newNote = {};
+      $scope.modalCreate.hide();
+
   }
 
   $scope.ViewDetails = (note) => {
@@ -46,8 +49,6 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs) {
   }
 
   $scope.deleteNote = () => {
-    debugger;
-    console.log('klk');
     $scope.MyNotes  = _.without($scope.MyNotes, $scope.noteToUpdate);
   }
 
