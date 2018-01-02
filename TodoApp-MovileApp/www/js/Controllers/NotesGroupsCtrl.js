@@ -8,8 +8,7 @@
             $scope.message = "work";
 
             $scope.newTag = {
-                "tagName":null,
-                "description": null
+                "tagName":null
             }
     
       $ionicModal.fromTemplateUrl('templates/modalGroup.html', {
