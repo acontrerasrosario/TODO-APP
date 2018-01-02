@@ -8,7 +8,7 @@
     factory.$inject = ['$http','Configs'];
 
     function factory($http,Configs) {
-        
+
         var currentIdentity = {
             username : null,
             name  : null,
@@ -17,7 +17,7 @@
             isAuthenticated : false,
             basicTkn : null
         };
-        
+
         var Value = localStorage.getItem("Identity");
 
         if (Value){

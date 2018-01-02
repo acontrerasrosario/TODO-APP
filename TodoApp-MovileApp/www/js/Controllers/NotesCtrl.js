@@ -26,20 +26,29 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs) {
   );
 
   $scope.addNewNote = () => {
-      $http.post(configs.API_ROUTE+'createNewNote', $scope.newNote).then(
-        (response)=> {
-          console.log('success',response);
-          $scope.newNote = {};
-      },
-        (response) => {
-          console.log('error',response);
-        }
-      );
+      // $http.post(configs.API_ROUTE+'api/notes/createNewNote', $scope.newNote).then(
+      //   (response)=> {
+      //     console.log('success',response);
+      //     $scope.newNote = {};
+      // },
+      //   (response) => {
+      //     console.log('error',response);
+      //   }
+      // );
+      $scope.newNote.id = $scope.MyNotes.length+1;
+      $scope.MyNotes.push($scope.newNote);
+      $scope.newNote = {};
   }
 
   $scope.ViewDetails = (note) => {
     $scope.noteToUpdate = note;
     $scope.openModalDetails();
+  }
+
+  $scope.deleteNote = () => {
+    debugger;
+    console.log('klk');
+    $scope.MyNotes  = _.without($scope.MyNotes, $scope.noteToUpdate);
   }
 
   $ionicModal.fromTemplateUrl('templates/createNote.html', {
