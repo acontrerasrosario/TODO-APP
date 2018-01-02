@@ -76,7 +76,6 @@ namespace WebApiTodoApp.Controllers.api
       return "HelloWoerl";
     }
     [HttpPost]
-    [AcceptVerbs("POST")]
     public HttpResponseMessage SignUp([FromBody]SignUpDTO newUser)
     {
 
@@ -109,7 +108,6 @@ namespace WebApiTodoApp.Controllers.api
     }
 
     [HttpPost]
-    //[AcceptVerbs("POST")]
     public object SignIn([FromBody]SignInDTO requestUser)
     {
       try
