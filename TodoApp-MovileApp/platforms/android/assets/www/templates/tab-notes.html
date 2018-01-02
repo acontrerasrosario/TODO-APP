@@ -80,22 +80,22 @@
                 <option value="3"> 2 Hours before </option>
               </select>
             </label>
-            <button class="button button-full button-positive" ng-click="">Update note</button>
-          <button class="button button-full button-assertive" ng-click="">Delete note</button>
+            <button class="button button-full button-positive" ng-click="modalDetails.hide()">Update note</button>
+          <button class="button button-full button-assertive" ng-click="deleteNote()">Delete note</button>
         </div>
       </ion-content>
     </ion-modal-view>
   </script>
   <ion-content class="padding">
-        <button class="button button-block button-positive ion-plus-circled" ng-click="modalDetails.show()"> Add new Note </button>
+        <button class="button button-block button-positive ion-plus-circled" ng-click="modalCreate.show()"> Add new Note </button>
     <ion-list ng-if="MyNotes.length > 0">
-      <ion-item ng-repeat="note in MyNotes" ng-click="ViewDetails(note)">
+      <ion-item ng-repeat="note in MyNotes" style="background-color:{{note.color}}" ng-click="ViewDetails(note)">
         <h2>{{note.title}}</h2>
         <p>{{note.description}}</p>
       </ion-item>
     </ion-list>
 
-    <div class="card" ng-if="MyNotes.length ==0">
+    <div class="card"  ng-if="MyNotes.length ==0">
       <div class="item item-text-wrap">
         No tienes notas registradas aun
       </div>
