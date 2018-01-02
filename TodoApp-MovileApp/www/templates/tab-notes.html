@@ -17,9 +17,14 @@
             </label>
             <label class="item item-input">
               <span class="input-label">Due Date</span>
-              <input ng-model="newNote.dueDate" type="datetime">
+              <ion-list>
+                <div class="item" ion-datetime-picker ng-model="datetimeValue">
+                  {{datetimeValue| date: "yyyy-MM-dd H:mm:ss"}}
+                </div>
+              </ion-list>
+              <input ng-model="newNote.dueDate" type="datetime-local">
             </label>
-            <label class="item item-input">
+            <label class="item item-input item-select">
               <span class="input-label">Color</span>
               <select>
                 <option value="#f44336"> Red </option>
@@ -28,7 +33,7 @@
                 <option value="#8bc34a"> Green </option>
               </select>
             </label>
-            <label class="item item-input">
+            <label class="item item-input item-select">
               <span class="input-label">Remind Me</span>
               <select>
                 <option value="0"> 15 Mins before </option>
@@ -42,8 +47,6 @@
         </ion-content>
       </ion-modal-view>
     </script>
-
-
   <ion-content class="padding">
     <div class="bar bar-header">
       <div class="h1 title">Mis notas</div>

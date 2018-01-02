@@ -4,7 +4,6 @@ angular.module("TodoAppIntec")
   // to the context module
   .controller('NotesCtrl', NotesCtrl);
 NotesCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal'];
-
 function NotesCtrl($scope, people, $ionicModal) {
   $scope.message = "work";
 
