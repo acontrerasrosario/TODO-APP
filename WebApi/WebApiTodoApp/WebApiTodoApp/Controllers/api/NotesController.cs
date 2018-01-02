@@ -35,6 +35,9 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpGet]
         [BasicAuth]
+<<<<<<< HEAD
+=======
+>>>>>>> origin/BRAWNY
         public HttpResponseMessage getAllNotes()
         {
             try

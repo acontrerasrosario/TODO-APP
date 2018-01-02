@@ -34,7 +34,10 @@ function SignUpController($scope, people, AuthService, $http, configs, $ionicPop
                     console.log('Tapped!', res);
                   });
             }
+<<<<<<< HEAD
             , OnError =  function(e){console.error('Sign up failed',e)};
+=======
+>>>>>>> origin/BRAWNY
         AuthService.SignUp(name, password, lastName, email, username,OnSuccess)
     }
 }
