@@ -39,7 +39,6 @@
                     currentIdentity = e.data;
                     currentIdentity.isAuthenticated = true;
                     $http.defaults.headers.common.Authorization = currentIdentity.basicTkn;
-                    localStorage.setItem("Identity",JSON.stringify(currentIdentity));
                     if (angular.isFunction(OnSuccess)) OnSuccess(e);
                 },(e)=>{
                     if (angular.isFunction(OnError)) OnError(e);
@@ -62,7 +61,6 @@
                 if (angular.isFunction(OnError)) OnError(e);
             });
         }
-
 
         var AuthService = {
             User : currentIdentity,

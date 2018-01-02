@@ -34,7 +34,7 @@ function SignUpController($scope, people, AuthService, $http, configs, $ionicPop
                     console.log('Tapped!', res);
                   });
             }
-            , OnError =  function(e){console.error('Sign up failed',e)};
+            , OnError;
         AuthService.SignUp(name, password, lastName, email, username,OnSuccess)
     }
 }

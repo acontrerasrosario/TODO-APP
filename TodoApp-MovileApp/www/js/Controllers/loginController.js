@@ -26,7 +26,7 @@
                             text: '<b>ok</b>',
                             type: 'button-positive',
                             onTap: function(e) {
-                                $state.go('tab.dash', {}, {reload: false});
+                                $state.go('tab.dash', {}, {reload: true});
                             }
                           }
                         ]

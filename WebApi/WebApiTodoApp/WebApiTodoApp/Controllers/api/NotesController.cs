@@ -35,6 +35,7 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpGet]
         [BasicAuth]
+        [AcceptVerbs("GET"),EnableCors("*", "*", "*")]
         public HttpResponseMessage getAllNotes()
         {
             try
