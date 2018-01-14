@@ -7,4 +7,5 @@
     function AboutUsCtrl($scope, people) {
         $scope.message = "work";
         $scope.members = people.all();
+        var s= '';
     }
