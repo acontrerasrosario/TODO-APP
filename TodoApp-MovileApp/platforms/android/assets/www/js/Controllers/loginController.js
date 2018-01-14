@@ -3,8 +3,9 @@
         // Addig the  controller function
         // to the context module
         .controller('loginController', loginController);
-        loginController.$inject = ['$scope', 'AboutUsServ','AuthService','$http','Configs','$ionicPopup','$state'];
-    function loginController($scope, people,AuthService,$http,configs,$ionicPopup,$state) {
+        loginController.$inject = ['$scope', 'AboutUsServ','AuthService','$http','Configs','$ionicPopup','$state','$ionicLoading'];
+    function loginController($scope,  people,AuthService,$http,configs,$ionicPopup,$state,$ionicLoading) {
+        $ionicLoading.show();
             $scope.user = {
                 credential : null,
                 password : null
