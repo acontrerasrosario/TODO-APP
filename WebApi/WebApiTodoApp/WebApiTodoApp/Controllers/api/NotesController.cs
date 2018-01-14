@@ -55,7 +55,6 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpGet]
         [BasicAuth]
-        [AcceptVerbs("GET")]
         public HttpResponseMessage getNoteByID(int id)
         {
             try
@@ -75,7 +74,6 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpPost]
         [BasicAuth]
-        [AcceptVerbs("POST")]
         public HttpResponseMessage createNewNote(newNoteDTO newNote)
         {
             try
@@ -111,7 +109,6 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpPut]
         [BasicAuth]
-        [AcceptVerbs("PUT")]
         public HttpResponseMessage UpdateNote(UpdateNoteDTO note)
         {
 
@@ -144,7 +141,6 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpDelete]
         [BasicAuth]
-        [AcceptVerbs("DELETE")]
         public HttpResponseMessage deleteNote(int noteID)
         {
 
@@ -156,7 +152,7 @@ namespace WebApiTodoApp.Controllers.api
                     if (user == null) return Request.CreateResponse(HttpStatusCode.Unauthorized);
 
                     var c = context.notes.Where(n => n.noteID == noteID && n.createdBy == user.userID).FirstOrDefault();
-                    
+
                     if (c == null) return Request.CreateResponse(HttpStatusCode.NotFound);
                     context.notes.Remove(c);
                     context.SaveChanges();
@@ -171,7 +167,6 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpPost]
         [BasicAuth]
-        [AcceptVerbs("POST")]
         public HttpResponseMessage CreateTag(string newTagName)
         {
             try
@@ -199,7 +194,6 @@ namespace WebApiTodoApp.Controllers.api
         }
 
         [HttpDelete]
-        [AcceptVerbs("DELETE")]
         public HttpResponseMessage DeleteTag(int id)
         {
 
@@ -225,7 +219,6 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpGet]
         [BasicAuth]
-        [AcceptVerbs("GET")]
         public HttpResponseMessage getTagByID(int id)
         {
             try
@@ -246,7 +239,6 @@ namespace WebApiTodoApp.Controllers.api
 
         [HttpGet]
         [BasicAuth]
-        [AcceptVerbs("GET")]
         public HttpResponseMessage getAllTags()
         {
             try

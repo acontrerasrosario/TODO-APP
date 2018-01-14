@@ -25,21 +25,31 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
+    <!-- <script src="lib/datetimePlugin/ion-datetime-picker.min.js"></script>
+    <link href="lib/datetimePlugin/ion-datetime-picker.min.css" rel="stylesheet">
+   -->
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+
+    <script src="js/Services/Configs.js"></script>
+    <script src="js/Services/AuthService.js"></script>
     <!-- app Controllers-->
     <script src="js/Controllers/DashCtrl.js"></script>
+    <script src="js/Controllers/loginController.js"></script>
+    <script src="js/Controllers/SignUpController.js"></script>
     <script src="js/Controllers/NotesCtrl.js"></script>
     <script src="js/Controllers/NotesGroupsCtrl.js"></script>
     <script src="js/Controllers/AboutUsCtrl.js"></script>
     <!-- app Services-->
     <script src="js/Services/AboutUsServ.js"></script>
+
+    <script src="lib/underscorejs.js"></script>
+
   </head>
-  <body ng-app="TodoAppIntec" class="platform-android platform-cordova platform-webview">
+  <body ng-app="TodoAppIntec">
     <!--
       The nav bar that will be updated as we navigate between views.
     -->

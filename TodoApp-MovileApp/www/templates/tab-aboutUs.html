@@ -1,4 +1,14 @@
+
 <ion-view view-title="About Us">
+    <script id="templates/modal.html" type="text/ng-template">
+      <ion-modal-view>
+        
+        <ion-content class="padding">
+          <h1>{{klk.name}}</h1>
+          <img src="{{klk.image}}"/>
+        </ion-content>
+      </ion-modal-view>
+    </script>
   <ion-content class="padding">
 
     <div class="card">
@@ -32,17 +42,18 @@
       <div class="item item-divider">
         <h2>Desarrolladores</h2>
       </div>
-      <div class="list">
-        <a ng-repeat="people in members" class="item item-avatar">
-            <img src="{{people.image}}">
-            <h2>{{people.name}}</h2>
-            <div class="item-body">
-              <p>{{people.description}}</p>
-            </div>
-          </a>
-      </div>
+
+      <ion-item class="item" ng-repeat="people in members"  ng-click="clicker(people)">
+        <a  class="item item-avatar" >
+          <img src="{{people.image}}">
+          <h2>{{people.name}}</h2>
+          <div class="item-body">
+            <p>{{people.description}}</p>
+          </div>
+     
+        </a>
+      </ion-item>
+   
     </div>
-
-
   </ion-content>
 </ion-view>
