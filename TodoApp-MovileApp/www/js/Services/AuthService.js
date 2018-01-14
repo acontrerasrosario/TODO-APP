@@ -5,11 +5,11 @@
         .module('TodoAppIntec')
         .factory('AuthService', factory);
 
-    factory.$inject = ['$http','Configs'];
+    factory.$inject = ['$http', 'Configs','$state'];
 
-    function factory($http,Configs) {
+    function factory($http, Configs, $state) {
 
-        var currentIdentity = {
+      var currentIdentity = {
             username : null,
             name  : null,
             lastName  : null,
@@ -24,6 +24,7 @@
             var valueObj = JSON.parse(Value);
             currentIdentity = valueObj;
             $http.defaults.headers.common.Authorization = currentIdentity.basicTkn;
+            $state.go('tab.dash', {}, { reload: false });
         }
 
 
@@ -39,12 +40,17 @@
                     currentIdentity = e.data;
                     currentIdentity.isAuthenticated = true;
                     $http.defaults.headers.common.Authorization = currentIdentity.basicTkn;
+                    localStorage.setItem('Identity', JSON.stringify(currentIdentity))
                     if (angular.isFunction(OnSuccess)) OnSuccess(e);
                 },(e)=>{
                     if (angular.isFunction(OnError)) OnError(e);
                 });
 
             }else throw 'Missing Identifier and/or password';
+        }
+        var LogOut = () => {
+          localStorage.removeItem('Identity');
+          location.reload();
         }
 
         var signUp = (name,password,lastName,email,username,OnSuccess,OnError)=>{
@@ -61,10 +67,11 @@
                 if (angular.isFunction(OnError)) OnError(e);
             });
         }
-
+    
         var AuthService = {
             User : currentIdentity,
-            LogIn : LogIn,
+            LogIn: LogIn,
+            LogOut: LogOut,
             SignUp:signUp
         }
         return AuthService;
