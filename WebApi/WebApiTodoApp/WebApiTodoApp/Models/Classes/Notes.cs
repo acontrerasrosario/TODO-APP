@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,8 +17,8 @@ namespace WebApiTodoApp.Models
     }
     public enum remindMeType
     {
-        min15, min30, hour1, hour2
-    }
+        min15 = 1, min30 = 2, hour1 = 3, hour2 = 4
+  }
     public class Notes
     {
         [Key]

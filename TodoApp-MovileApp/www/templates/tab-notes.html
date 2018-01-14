@@ -49,10 +49,16 @@
           <label class="item item-input item-select">
               <span class="input-label">Recordatorio</span>
               <select ng-model="newNote.remindMe">
-                <option value="0"> 15 minutos antes </option>
-                <option value="1"> 30 minutos antes </option>
-                <option value="2"> 1 hora antes </option>
-                <option value="3"> 2 hora antes </option>
+                <option value="1"> 15 minutos antes </option>
+                <option value="2"> 30 minutos antes </option>
+                <option value="3"> 1 hora antes </option>
+                <option value="4"> 2 hora antes </option>
+              </select>
+            </label>
+            <label class="item item-input item-select">
+              <span class="input-label">Etiqueta</span>
+              <select ng-model="newNote.tagId">
+                <option ng-repeat="tag in MyTags" value="tag.tagID">{{tag.Name}}</option>
               </select>
             </label>
           <button class="button button-full button-positive" ng-click="addNewNote()">Crear nueva nota</button>
@@ -78,11 +84,11 @@
             </label>
           <label class="item item-input">
               <span class="input-label">Fecha de vencimiento</span>
-              <input ng-model="noteToUpdate.dueDate" type="text">
+              <input datetime="yyyy-MM-dd HH:mm:ss" ng-model="noteToUpdate.dueDate" ng-click="openDatePicker2()" type="text"/>
             </label>
           <label class="item item-input item-select">
               <span class="input-label">Colores</span>
-              <select ng-model="noteToUpdate.color">
+              <select ng-model="noteToUpdate.colorHex">
                 <option value="#f44336"> Rojo </option>
                 <option value="#03a9f4"> Azul </option>
                 <option value="#ffeb3b"> Amarillo </option>
@@ -92,22 +98,43 @@
           <label class="item item-input item-select">
               <span class="input-label">Recordatorio</span>
               <select ng-model="noteToUpdate.remindMe">
-                <option value="0"> 15 minutos antes </option>
-                <option value="1"> 30 minutos antes </option>
-                <option value="2"> 1 hora antes </option>
-                <option value="3"> 2 hora antes </option>
+                <option value="1"> 15 minutos antes </option>
+                <option value="2"> 30 minutos antes </option>
+                <option value="3"> 1 hora antes </option>
+                <option value="4"> 2 hora antes </option>
               </select>
             </label>
-            <button class="button button-full button-positive" ng-click="modalDetails.hide()">Actualizar nota</button>
+            <label class="item item-input item-select">
+              <span class="input-label">Etiqueta</span>
+              <select ng-model="noteToUpdate.tagId">
+                <option ng-repeat="tag in MyTags" value="tag.tagID">{{tag.Name}}</option>
+              </select>
+            </label>
+            <button class="button button-full button-positive" ng-click="updateNote(); modalDetails.hide()">Actualizar nota</button>
           <button class="button button-full button-assertive" ng-click="deleteNote(); modalDetails.hide()">Eliminar nota</button>
         </div>
       </ion-content>
     </ion-modal-view>
   </script>
   <ion-content class="padding">
-        <button class="button button-block button-positive ion-plus-circled" ng-click="modalCreate.show()"> Agregar nueva nota </button>
+    <button class="button button-block button-positive ion-plus-circled" ng-click="openModalCreate()"> Agregar nueva nota </button>
+    
+    <label style="margin-bottom:10px;" class="item item-input item-select">
+        <span class="input-label">Ordenar por</span>
+        <select ng-model="SortSeleted" ng-change="ChangeSort()">
+            <option ng-repeat="type in SortType" value="{{type.no}}">{{type.name}}</option>
+        </select>
+      </label>
+
+      <label ng-if="SortSeleted = 3" style="margin-bottom:10px;" class="item item-input item-select">
+          <span class="input-label">Etiqueta para Filtrar</span>
+          <select ng-model="TagSeleted">
+              <option ng-repeat="tag in MyTags" value="tag.tagID">{{tag.Name}}</option>
+          </select>
+        </label>
+    
     <ion-list ng-if="MyNotes.length > 0">
-      <ion-item ng-repeat="note in MyNotes" style="background-color:{{note.color}}" ng-click="ViewDetails(note)">
+      <ion-item ng-repeat="note in MyNotes" style="background-color:{{note.colorHex}}" ng-click="ViewDetails(note)">
         <h2>{{note.title}}</h2>
         <p>{{note.description}}</p>
       </ion-item>
