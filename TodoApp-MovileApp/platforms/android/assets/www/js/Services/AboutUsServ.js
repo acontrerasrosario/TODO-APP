@@ -9,20 +9,20 @@ angular.module('TodoAppIntec')
                   id: 0,
                   name: 'Andrea L. Polanco',
                   description: 'You on your way?',
-                  image: 'img/ionic.png'
+                  image: 'img/andrea.jpeg'
                 },
                 {
                   id: 1,
                   name: 'Angel Emilio Contreras',
                   description: `Gran amante de las TI. Tengo como objetivo desarrollar software para ayudar a mi país a ser mejor. Soy un joven creativo, colaborador y autodidacta.
                                 Conocedor de herramientas orientado al desarrollo de software / base de datos, tanto comerciales como de código abierto, técnicas de desarrollo en equipo y manejo de proyectos, patrones de diseño y estándares de seguridad informática.`,
-                  image: 'img/ionic.png'
+                  image: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAheAAAAJDFlZmIyM2ZhLTgyMGUtNGVjOC05MjlmLTExYWZiOGM4MWFjNA.jpg'
                 },
                 {
                   id: 2,
                   name: 'Brawny Javier Mateo',
                   description: 'You on your way?',
-                  image: 'img/ionic.png'
+                  image: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAseAAAAJDdkZmNjNzUwLTJhNzgtNGNjYS04YmY1LWIwNjdkNGQzZWQ4OA.jpg'
                 }
             ];
 

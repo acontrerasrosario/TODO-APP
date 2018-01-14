@@ -3,8 +3,8 @@ angular.module("TodoAppIntec")
   // Addig the  controller function
   // to the context module
   .controller('NotesCtrl', NotesCtrl);
-NotesCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal','$http', 'Configs'];
-function NotesCtrl($scope, people, $ionicModal,$http,configs) {
+NotesCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal','$http', 'Configs', '$rootScope','ionicDatePicker'];
+function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDatePicker) {
   $scope.message = "work";
 
   $scope.newNote = {
@@ -35,21 +35,47 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs) {
       //     console.log('error',response);
       //   }
       // );
-      if ($scope.newNote = {})
       $scope.newNote.id = $scope.MyNotes.length+1;
       $scope.MyNotes.push($scope.newNote);
+      $rootScope.Notes = $scope.MyNotes;
       $scope.newNote = {};
       $scope.modalCreate.hide();
-
+      console.log('rootscope',$rootScope.Notes);
   }
+  var ipObj1 = {
+    callback: function (val) {  //Mandatory 
+      console.log('Return value from the datepicker popup is : ' + val, new Date(val));
+      function convertDate(inputFormat) {
+        function pad(s) { return (s < 10) ? '0' + s : s; }
+        var d = new Date(inputFormat);
+        return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+      }
+      $scope.newNote.dueDate = convertDate(new Date(val));
+    },
+    from: new Date(2012, 1, 1), //Optional 
+    to: new Date(2500, 10, 30), //Optional 
+    inputDate: new Date(),      //Optional 
+    mondayFirst: true,          //Optional 
+    disableWeekdays: [0],       //Optional 
+    closeOnSelect: false,       //Optional 
+    templateType: 'popup'       //Optional 
+  };
 
+  $scope.openDatePicker = function(){
+    ionicDatePicker.openDatePicker(ipObj1);
+  };
   $scope.ViewDetails = (note) => {
     $scope.noteToUpdate = note;
     $scope.openModalDetails();
+    console.log('rootscope',$rootScope.Notes);
+    
   }
 
   $scope.deleteNote = () => {
     $scope.MyNotes  = _.without($scope.MyNotes, $scope.noteToUpdate);
+    $rootScope.Notes =  $scope.MyNotes;
+    console.log('rootscope',$rootScope.Notes);
+
   }
 
   $ionicModal.fromTemplateUrl('templates/createNote.html', {

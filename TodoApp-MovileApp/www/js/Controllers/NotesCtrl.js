@@ -68,7 +68,6 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
     $scope.noteToUpdate = note;
     $scope.openModalDetails();
     console.log('rootscope',$rootScope.Notes);
-    
   }
 
   $scope.deleteNote = () => {
