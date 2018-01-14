@@ -12,20 +12,18 @@ function SignUpController($scope, people, AuthService, $http, configs, $ionicPop
     });
     var name = $scope.user.name
       , password = $scope.user.password
-      , lastName = $scope.user.lastName
+      , lastName = $scope.user.lastname
       , email = $scope.user.email
-      , username = $scope.user.username
+      , username = $scope.user.credential
       , OnSuccess = function () {
         $ionicLoading.hide();
         var myPopup = $ionicPopup.show({
           // template: '<input type="password" ng-model="data.wifi">',
-          title: 'User has signed up.',
-          subTitle: 'go ahead!',
+          title: 'Usuario Registrado',
           scope: $scope,
           buttons: [
-            { text: 'Cancel' },
             {
-              text: '<b>ok</b>',
+              text: '<b>Iniciar sesión</b>',
               type: 'button-positive',
               onTap: function (e) {
                 $state.go('login', {}, { reload: true });
