@@ -472,3 +472,8 @@ C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\b
 C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\Microsoft.Owin.Cors.xml
 C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\System.Web.Http.Cors.xml
 C:\Users\Emilio - Dev\source\repos\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\System.Web.Cors.dll
+C:\Users\brawn\Desktop\Mobile\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\Microsoft.Owin.Cors.dll
+C:\Users\brawn\Desktop\Mobile\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\Microsoft.Owin.dll
+C:\Users\brawn\Desktop\Mobile\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\Owin.dll
+C:\Users\brawn\Desktop\Mobile\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\Microsoft.Owin.xml
+C:\Users\brawn\Desktop\Mobile\TODO-APP\WebApi\WebApiTodoApp\WebApiTodoApp\bin\Microsoft.Owin.Cors.xml
