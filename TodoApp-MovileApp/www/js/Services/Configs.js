@@ -9,7 +9,7 @@
 
     function factory($http) {
         this.API_ROUTE = 'https://todoapp-intec.azurewebsites.net/';
-
+        var l = 's';
 
 
 

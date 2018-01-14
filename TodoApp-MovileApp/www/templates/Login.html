@@ -1,33 +1,37 @@
-<ion-view view-title="Login">
-    <ion-content>
+<ion-view view-title="Inicio de Sesi&oacute;n">
+  <ion-content>
     <form name="myForm" novalidate>
-      <div class="padding logo">
-          <img src="img/ionic.png">
-          <div class="padding">Use your credentials to log into your account</div>
+      <div style="align-content:center; align-self:center" class="padding logo">
+        <img src="img/applogo.jpg"
+             style="width:100px;
+             align-content:center;
+             height:auto;
+             align-self:center;
+             display:block;">
       </div>
       <div class="list">
-          <label class="item item-input">
-            <span class="input-label">User Name</span>
-            <input type="text" name="username" ng-model="user.credential" required>
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Password</span>
-            <input type="password" name="password" ng-model="user.password" required>
-          </label>
-        </div>
-      
+        <label class="item item-input">
+          <span class="input-label">Usuario</span>
+          <input type="text" autocomplete="off" name="username" ng-model="user.credential" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Contraseña</span>
+          <input type="password" autocomplete="off" name="password" ng-model="user.password" required>
+        </label>
+      </div>
+
       <div class="padding errors">
-          <p ng-show="myForm.username.$error.required">* Username is required</p>
-          <p ng-show="myForm.password.$error.required">* Password is required</p>
+        <p ng-show="myForm.username.$error.required">* Nombre de usuario es requerido</p>
+        <p ng-show="myForm.password.$error.required">* Contraseña es requerida</p>
       </div>
-  
+
       <div class="padding">
-        <button class="button button-block button-custom" ng-disabled="myForm.$invalid" ng-click="LogIn()">Sign-In</button>
-        <button class="button button-block button-custom"  ng-click="RedirectSignUp()">Sign-Up</button>
-          <!-- <p class="text-center">
-            <a href="#/forgot-password">Forgot password</a>
-          </p> -->
+        <button class="button button-block button-custom" ng-disabled="myForm.$invalid" ng-click="LogIn()">Iniciar sesi&oacute;n</button>
+        <button class="button button-block button-custom" ng-click="RedirectSignUp()">Registrarse</button>
+        <!-- <p class="text-center">
+          <a href="#/forgot-password">Forgot password</a>
+        </p> -->
       </div>
-      </form>
-    </ion-content>
-  </ion-view>
+    </form>
+  </ion-content>
+</ion-view>
