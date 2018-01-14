@@ -1,4 +1,4 @@
-<ion-view view-title="Notes">
+<ion-view view-title="Notas">
   <style>
   .ionic_datepicker_popup .popup-body .selected_date_full {
     background-color: #387ef5;
@@ -20,42 +20,42 @@
   <script id="templates/createNote.html" type="text/ng-template">
     <ion-modal-view>
       <ion-header-bar class="bar bar-header bar-positive">
-        <h1 class="title">New Note</h1>
-        <button class="button button-clear button-primary" ng-click="modalCreate.hide()">Cancel</button>
+        <h1 class="title">Nueva Nota</h1>
+        <button class="button button-clear button-primary" ng-click="modalCreate.hide()">Cancelar</button>
       </ion-header-bar>
       <ion-content class="padding">
         <div class="list">
           <label class="item item-input">
-              <span class="input-label">Title</span>
+              <span class="input-label">Titulo</span>
               <input ng-model="newNote.title" type="text">
             </label>
           <label class="item item-input">
-              <span class="input-label">Description</span>
+              <span class="input-label">Descripci&oacute;n</span>
               <textarea ng-model="newNote.description" cols="6" rows="6"></textarea>
             </label>
           <label class="item item-input">
-              <span class="input-label">Due Date</span>
+              <span class="input-label">Fecha de vencimiento</span>
               <input datetime="yyyy-MM-dd HH:mm:ss" ng-model="newNote.dueDate" ng-click="openDatePicker()" type="text"/>
             </label>
           <label class="item item-input item-select">
-              <span class="input-label">Color</span>
+              <span class="input-label">Colores</span>
               <select ng-model="newNote.color">
-                <option value="#f44336"> Red </option>
-                <option value="#03a9f4"> Blue </option>
-                <option value="#ffeb3b"> Yellow </option>
-                <option value="#8bc34a"> Green </option>
+                <option value="#f44336"> Rojo </option>
+                <option value="#03a9f4"> Azul </option>
+                <option value="#ffeb3b"> Amarillo </option>
+                <option value="#8bc34a"> Verde </option>
               </select>
             </label>
           <label class="item item-input item-select">
-              <span class="input-label">Remind Me</span>
+              <span class="input-label">Recordatorio</span>
               <select ng-model="newNote.remindMe">
-                <option value="0"> 15 Mins before </option>
-                <option value="1"> 30 Mins before </option>
-                <option value="2"> 1 Hour before </option>
-                <option value="3"> 2 Hours before </option>
+                <option value="0"> 15 minutos antes </option>
+                <option value="1"> 30 minutos antes </option>
+                <option value="2"> 1 hora antes </option>
+                <option value="3"> 2 hora antes </option>
               </select>
             </label>
-          <button class="button button-full button-positive" ng-click="addNewNote()">Create new Note</button>
+          <button class="button button-full button-positive" ng-click="addNewNote()">Crear nueva nota</button>
         </div>
       </ion-content>
     </ion-modal-view>
@@ -63,49 +63,49 @@
   <script id="templates/ViewDetails.html" type="text/ng-template">
     <ion-modal-view>
       <ion-header-bar class="bar bar-header bar-positive">
-        <h1 class="title">Details of Note</h1>
-        <button class="button button-clear button-primary" ng-click="modalDetails.hide()">Cancel</button>
+        <h1 class="title">Detalle</h1>
+        <button class="button button-clear button-primary" ng-click="modalDetails.hide()">Cancelar</button>
       </ion-header-bar>
       <ion-content class="padding">
         <div class="list">
           <label class="item item-input">
-              <span class="input-label">Title</span>
+              <span class="input-label">Titulo</span>
               <input ng-model="noteToUpdate.title" type="text">
             </label>
           <label class="item item-input">
-              <span class="input-label">Description</span>
+              <span class="input-label">Descripci&oacute;n</span>
               <textarea ng-model="noteToUpdate.description" cols="6" rows="6"></textarea>
             </label>
           <label class="item item-input">
-              <span class="input-label">Due Date</span>
+              <span class="input-label">Fecha de vencimiento</span>
               <input ng-model="noteToUpdate.dueDate" type="text">
             </label>
           <label class="item item-input item-select">
-              <span class="input-label">Color</span>
+              <span class="input-label">Colores</span>
               <select ng-model="noteToUpdate.color">
-                <option value="#f44336"> Red </option>
-                <option value="#03a9f4"> Blue </option>
-                <option value="#ffeb3b"> Yellow </option>
-                <option value="#8bc34a"> Green </option>
+                <option value="#f44336"> Rojo </option>
+                <option value="#03a9f4"> Azul </option>
+                <option value="#ffeb3b"> Amarillo </option>
+                <option value="#8bc34a"> Verde </option>
               </select>
             </label>
           <label class="item item-input item-select">
-              <span class="input-label">Remind Me</span>
+              <span class="input-label">Recordatorio</span>
               <select ng-model="noteToUpdate.remindMe">
-                <option value="0"> 15 Mins before </option>
-                <option value="1"> 30 Mins before </option>
-                <option value="2"> 1 Hour before </option>
-                <option value="3"> 2 Hours before </option>
+                <option value="0"> 15 minutos antes </option>
+                <option value="1"> 30 minutos antes </option>
+                <option value="2"> 1 hora antes </option>
+                <option value="3"> 2 hora antes </option>
               </select>
             </label>
-            <button class="button button-full button-positive" ng-click="modalDetails.hide()">Update note</button>
-          <button class="button button-full button-assertive" ng-click="deleteNote(); modalDetails.hide()">Delete note</button>
+            <button class="button button-full button-positive" ng-click="modalDetails.hide()">Actualizar nota</button>
+          <button class="button button-full button-assertive" ng-click="deleteNote(); modalDetails.hide()">Eliminar nota</button>
         </div>
       </ion-content>
     </ion-modal-view>
   </script>
   <ion-content class="padding">
-        <button class="button button-block button-positive ion-plus-circled" ng-click="modalCreate.show()"> Add new Note </button>
+        <button class="button button-block button-positive ion-plus-circled" ng-click="modalCreate.show()"> Agregar nueva nota </button>
     <ion-list ng-if="MyNotes.length > 0">
       <ion-item ng-repeat="note in MyNotes" style="background-color:{{note.color}}" ng-click="ViewDetails(note)">
         <h2>{{note.title}}</h2>
