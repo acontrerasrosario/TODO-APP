@@ -3,10 +3,11 @@
         // Addig the  controller function
         // to the context module
         .controller('NotesGroupsCtrl', NotesGroupsCtrl);
-    NotesGroupsCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal'];
-    function NotesGroupsCtrl($scope, people,$ionicModal) {
-            $scope.message = "work";
-
+    NotesGroupsCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal','AuthService','$state'];
+    function NotesGroupsCtrl($scope, people,$ionicModal,AuthService,$state) {
+      if (!AuthService.User.isAuthenticated)
+      $state.go('login', {}, {reload: true});
+      
             $scope.newTag = {
                 "tagName":null
             }

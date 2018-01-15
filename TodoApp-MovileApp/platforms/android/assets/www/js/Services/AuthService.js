@@ -8,6 +8,7 @@
     factory.$inject = ['$http','Configs'];
 
     function factory($http,Configs) {
+
         var currentIdentity = {
             username : null,
             name  : null,
@@ -16,17 +17,6 @@
             isAuthenticated : false,
             basicTkn : null
         };
-        
-        var Value = localStorage.getItem("Identity");
-
-        if (Value){
-            var valueObj = JSON.parse(Value);
-            currentIdentity = valueObj;
-            $http.defaults.headers.common.Authorization = currentIdentity.basicTkn;
-        }
-
-
-        var API_ROUTE = Configs.API_ROUTE;
 
         var Value = localStorage.getItem("Identity");
 
@@ -49,7 +39,6 @@
                     currentIdentity = e.data;
                     currentIdentity.isAuthenticated = true;
                     $http.defaults.headers.common.Authorization = currentIdentity.basicTkn;
-                    localStorage.setItem("Identity",JSON.stringify(currentIdentity));
                     if (angular.isFunction(OnSuccess)) OnSuccess(e);
                 },(e)=>{
                     if (angular.isFunction(OnError)) OnError(e);

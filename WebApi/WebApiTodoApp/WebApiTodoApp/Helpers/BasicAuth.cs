@@ -26,7 +26,7 @@ namespace WebApiTodoApp.Helpers
           if (user == null) actionContext.Request.CreateResponse(System.Net.HttpStatusCode.Unauthorized);
         }
       }
-      catch (Exception)
+      catch (Exception e)
       {
         actionContext.Response = actionContext.Request.CreateResponse(System.Net.HttpStatusCode.Unauthorized);
       }

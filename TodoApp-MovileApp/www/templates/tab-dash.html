@@ -1,35 +1,79 @@
-<ion-view view-title="Dashboard">
+<ion-view view-title="Inicio">
+
+    <script id="templates/ViewDetails.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Detalle</h1>
+          <button class="button button-clear button-primary" ng-click="modalDetails.hide()">Cancelar</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <div class="list">
+            <label class="item item-input">
+                <span class="input-label">Titulo</span>
+                <input disabled ng-model="noteToUpdate.title" type="text">
+              </label>
+            <label class="item item-input">
+                <span class="input-label">Descripci&oacute;n</span>
+                <textarea disabled ng-model="noteToUpdate.description" cols="6" rows="6"></textarea>
+              </label>
+            <label class="item item-input">
+                <span class="input-label">Fecha de vencimiento</span>
+                <input disabled datetime="yyyy-MM-dd HH:mm:ss" ng-model="noteToUpdate.dueDate" ng-click="openDatePicker2()" type="text"/>
+              </label>
+            <label class="item item-input item-select">
+                <span class="input-label">Colores</span>
+                <select disabled ng-model="noteToUpdate.colorHex">
+                  <option value="#f44336"> Rojo </option>
+                  <option value="#03a9f4"> Azul </option>
+                  <option value="#ffeb3b"> Amarillo </option>
+                  <option value="#8bc34a"> Verde </option>
+                </select>
+              </label>
+            <label class="item item-input item-select">
+                <span class="input-label">Recordatorio</span>
+                <select disabled ng-model="noteToUpdate.remindMe">
+                  <option value="1"> 15 minutos antes </option>
+                  <option value="2"> 30 minutos antes </option>
+                  <option value="3"> 1 hora antes </option>
+                  <option value="4"> 2 hora antes </option>
+                </select>
+              </label>
+              <label class="item item-input item-select">
+                <span class="input-label">Etiqueta</span>
+                <select disabled ng-model="noteToUpdate.tagId">
+                  <option ng-repeat="tag in MyTags" value="tag.tagID">{{tag.Name}}</option>
+                </select>
+              </label>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+
   <ion-content class="padding">
 
 
-    <ion-list ng-if="Notes.length > 0">
-      <ion-item ng-repeat="note in Notes">
-        <div class="item-avatar">
-          <img ng-if="note.color == '#f44336'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Solid_blue.svg/225px-Solid_blue.svg.png">
-          <img ng-if="note.color == '#03a9f4'" src="https://euimages.urbanoutfitters.com/is/image/UrbanOutfittersEU/5139633640050_060_s">
-          <img ng-if="note.color == '#ffeb3b'" src="https://lh3.googleusercontent.com/nhzkOTPaoWAYfO-LeklB_kPd5bAqm43D87Q3eHlK3alIse8rgrYPE74epbbbZ2b4EsY=w300">
-          <img ng-if="note.color == '#8bc34a'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Flag_of_Libya_%281977-2011%29.svg/2000px-Flag_of_Libya_%281977-2011%29.svg.png">
-        </div>
+      <label style="margin-bottom:10px;" class="item item-input item-select">
+          <span class="input-label">Ordenar por</span>
+          <select ng-model="SortSeleted" ng-change="ChangeSort()">
+              <option ng-repeat="type in SortType" value="{{type.no}}">{{type.name}}</option>
+          </select>
+        </label>
+
+        <label ng-if="SortSeleted = 3" style="margin-bottom:10px;" class="item item-input item-select">
+            <span class="input-label">Etiqueta para Filtrar</span>
+            <select ng-model="TagSeleted">
+                <option ng-repeat="tag in MyTags" value="tag.tagID">{{tag.Name}}</option>
+            </select>
+          </label>
+
+    <ion-list>
+      <ion-item ng-repeat="note in Notes |limitTo:5" style="background-color:{{note.colorHex}}" ng-click="ViewDetails(note)">
         <h2>{{note.title}}</h2>
         <p>{{note.description}}</p>
-        <div class="item item-image">
-          <img ng-if="note.color == '#f44336'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Solid_blue.svg/225px-Solid_blue.svg.png">
-          <img ng-if="note.color == '#03a9f4'" src="https://euimages.urbanoutfitters.com/is/image/UrbanOutfittersEU/5139633640050_060_s">
-          <img ng-if="note.color == '#ffeb3b'" src="https://lh3.googleusercontent.com/nhzkOTPaoWAYfO-LeklB_kPd5bAqm43D87Q3eHlK3alIse8rgrYPE74epbbbZ2b4EsY=w300">
-          <img ng-if="note.color == '#8bc34a'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Flag_of_Libya_%281977-2011%29.svg/2000px-Flag_of_Libya_%281977-2011%29.svg.png">
-        </div>
-
-        <a class="item item-icon-left assertive" href="#">
-          <i class="icon ion-ios-americanfootball" ng-if="note.color == '#8bc34a'"></i>
-          <i class="icon ion-ios-albums" ng-if="note.color == '#8bc34a'"></i>
-          <i class="icon ion-ios-alarm-outline" ng-if="note.color == '#8bc34a'"></i>
-           <i class="icon ion-ios-analytics-outline" ng-if="note.color == '#8bc34a'"></i>
-           {{note.title}}
-         </a>
       </ion-item>
     </ion-list>
 
-    <div class="card" ng-if="Notes.length ==0">
+    <div class="card"  ng-if="Notes.length ==0">
       <div class="item item-text-wrap">
         No tienes notas registradas aun
       </div>
