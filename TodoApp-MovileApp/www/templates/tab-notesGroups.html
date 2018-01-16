@@ -12,8 +12,10 @@
             <input ng-model="newTag.tagName" type="text">
           </label>
          
-          <button class="button button-full button-positive" ng-click="">Crear un nuevo grupo de notas</button>
+          <button class="button button-full button-positive" ng-click="addNewTag()">Crear un nuevo grupo de notas</button>
         </div>
+        <button class="button button-full button-positive" ng-click="updateNote(); modalDetails.hide()">Actualizar nota</button>
+          <button class="button button-full button-assertive" ng-click="deleteNote(); modalDetails.hide()">Eliminar nota</button>
       </ion-content>
     </ion-modal-view>
   </script>
