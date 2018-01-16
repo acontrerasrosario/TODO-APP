@@ -119,19 +119,14 @@
   <ion-content class="padding">
     <button class="button button-block button-positive ion-plus-circled" ng-click="openModalCreate()"> Agregar nueva nota </button>
     
-    <label style="margin-bottom:10px;" class="item item-input item-select">
-        <span class="input-label">Ordenar por</span>
-        <select ng-model="SortSeleted" ng-change="ChangeSort()">
-            <option ng-repeat="type in SortType" value="{{type.no}}">{{type.name}}</option>
-        </select>
-      </label>
+    <button ng-click="ChangeSort(1)" style="margin-bottom:10px;"  class="button button-positive">
+      Ordenar por fecha ascendente
+    </button>
 
-      <label ng-if="SortSeleted = 3" style="margin-bottom:10px;" class="item item-input item-select">
-          <span class="input-label">Etiqueta para Filtrar</span>
-          <select ng-model="TagSeleted">
-              <option ng-repeat="tag in MyTags" value="tag.tagID">{{tag.Name}}</option>
-          </select>
-        </label>
+    <button ng-click="ChangeSort(2)" style="margin-bottom:10px;"  class="button button-calm">
+      Ordenar por fecha descendente
+    </button>
+
     
     <ion-list ng-if="MyNotes.length > 0">
       <ion-item ng-repeat="note in MyNotes" style="background-color:{{note.colorHex}}" ng-click="ViewDetails(note)">
