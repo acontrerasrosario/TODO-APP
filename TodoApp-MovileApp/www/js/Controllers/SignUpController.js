@@ -37,6 +37,7 @@ function SignUpController($scope, people, AuthService, $http, configs, $ionicPop
         });
       }
       , OnError = () => {
+        $ionicLoading.hide();
         var myPopup = $ionicPopup.show({
           // template: '<input type="password" ng-model="data.wifi">',
           title: 'Error.',
