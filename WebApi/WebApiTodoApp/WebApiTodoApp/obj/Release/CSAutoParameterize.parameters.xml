@@ -1,2 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters />
+<parameters>
+  <parameter name="WebApiTodoApp.Models.TodoAppContext-Web.config Connection String" description="WebApiTodoApp.Models.TodoAppContext Connection String used in web.config by the application to access the database." defaultValue="WebApiTodoApp.Models.TodoAppContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\brawn\\Desktop\\Mobile\\TODO-APP\\WebApi\\WebApiTodoApp\\WebApiTodoApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WebApiTodoApp.Models.TodoAppContext']/@connectionString" />
+  </parameter>
+  <parameter name="WebApiTodoApp.Models.TodoAppContext_DatabasePublish-Web.config Connection String" description="WebApiTodoApp.Models.TodoAppContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="WebApiTodoApp.Models.TodoAppContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\brawn\\Desktop\\Mobile\\TODO-APP\\WebApi\\WebApiTodoApp\\WebApiTodoApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='WebApiTodoApp.Models.TodoAppContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

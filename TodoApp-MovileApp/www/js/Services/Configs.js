@@ -8,7 +8,11 @@
     factory.$inject = ['$http'];
 
     function factory($http) {
-        this.API_ROUTE = 'http://localhost:52521/';
+      this.API_ROUTE = 'http://todoapp-intec.azurewebsites.net';
+        var l = 's';
+
+
+
         return this;
     }
 })();

@@ -44,9 +44,20 @@ namespace WebApiTodoApp.Controllers.api
       {
         using (var context = new TodoAppContext())
         {
-          var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
-          var result = context.notes.Where(n => n.createdBy == user.userID).ToList();
-          return Request.CreateResponse(HttpStatusCode.OK, result);
+
+            try
+            {
+                using (var context = new TodoAppContext())
+                {
+                    var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
+                    var result = context.notes.Where(n => n.createdBy == user.userID).ToList();
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
+            }
         }
       }
       catch (Exception e)
@@ -63,9 +74,20 @@ namespace WebApiTodoApp.Controllers.api
       {
         using (var context = new TodoAppContext())
         {
-          var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
-          var result = context.notes.Where(n => n.createdBy == user.userID && n.noteID == id).FirstOrDefault();
-          return Request.CreateResponse(HttpStatusCode.OK, result);
+
+            try
+            {
+                using (var context = new TodoAppContext())
+                {
+                    var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
+                    var result = context.notes.Where(n => n.createdBy == user.userID && n.noteID == id).FirstOrDefault();
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
+            }
         }
       }
       catch (Exception e)
@@ -169,12 +191,14 @@ namespace WebApiTodoApp.Controllers.api
 
           var c = context.notes.Where(n => n.noteID == noteID && n.createdBy == user.userID).FirstOrDefault();
 
-          if (c == null) return Request.CreateResponse(HttpStatusCode.NotFound);
-          context.notes.Remove(c);
-          context.SaveChanges();
-          return Request.CreateResponse(HttpStatusCode.OK, c);
-        }
-      }
+
+                    if (c == null) return Request.CreateResponse(HttpStatusCode.NotFound);
+                    context.notes.Remove(c);
+                    context.SaveChanges();
+                    return Request.CreateResponse(HttpStatusCode.OK, c);
+                }
+            }
+            
       catch (Exception e)
       {
         return Request.CreateResponse(HttpStatusCode.BadGateway, e);
@@ -200,7 +224,6 @@ namespace WebApiTodoApp.Controllers.api
           context.tags.Add(c);
           context.SaveChanges();
           return Request.CreateResponse(HttpStatusCode.OK);
-
         }
       }
       catch (Exception e)
@@ -241,9 +264,20 @@ namespace WebApiTodoApp.Controllers.api
       {
         using (var context = new TodoAppContext())
         {
-          var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
-          var result = context.tags.Where(n => n.createdBy == user.userID && n.tagID == id).FirstOrDefault();
-          return Request.CreateResponse(HttpStatusCode.OK, result);
+
+            try
+            {
+                using (var context = new TodoAppContext())
+                {
+                    var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
+                    var result = context.tags.Where(n => n.createdBy == user.userID && n.tagID == id).FirstOrDefault();
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
+            }
         }
       }
       catch (Exception e)
@@ -261,9 +295,19 @@ namespace WebApiTodoApp.Controllers.api
       {
         using (var context = new TodoAppContext())
         {
-          var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
-          var result = context.tags.Where(n => n.createdBy == user.userID).ToList();
-          return Request.CreateResponse(HttpStatusCode.OK, result);
+            try
+            {
+                using (var context = new TodoAppContext())
+                {
+                    var user = AuthService.getCurrUserInfo(HttpContext.Current.Request.Headers);
+                    var result = context.tags.Where(n => n.createdBy == user.userID).FirstOrDefault();
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
+            }
         }
       }
       catch (Exception e)

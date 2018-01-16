@@ -59,27 +59,25 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
       "dueDate": 'Fecha',
       "color": 'Color',
     };
-    var missing = [];
+
     var missingmsj = '';
     for (var i in required_values) {
       if ($scope.newNote[i] == null) {
-        missing.push(i);
-        missingmsj += `\n "${required_values[i]}" es un valor requerido. </br>`
+        missingmsj += `"${required_values[i]}" es un valor requerido. </br>`
       }
     }
-    if (missing.length > 0) {
-      $scope.modalCreate.hide();
-      var myPopup = $ionicPopup.show({
+    if (missingmsj != '') {
+      var Pop_up = $ionicPopup.show({
         title: 'Error',
         subTitle: missingmsj,
         scope: $scope,
         buttons: [
-          { text: 'Ok' },
+          { text: 'Ok' }
         ]
       });
     } else {
       $ionicLoading.show({
-        template: '<p>Creando cuenta...</p><ion-spinner></ion-spinner>'
+        template: '<p>Creando nota...</p><ion-spinner></ion-spinner>'
       });
       $scope.newNote.id = $scope.MyNotes.length + 1;
       $scope.MyNotes.push($scope.newNote);
