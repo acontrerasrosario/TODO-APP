@@ -1,14 +1,6 @@
 
 <ion-view view-title="About Us">
-    <script id="templates/modal.html" type="text/ng-template">
-      <ion-modal-view>
-        
-        <ion-content class="padding">
-          <h1>{{klk.name}}</h1>
-          <img src="{{klk.image}}"/>
-        </ion-content>
-      </ion-modal-view>
-    </script>
+ 
   <ion-content class="padding">
 
     <div class="card">
@@ -43,7 +35,7 @@
         <h2>Desarrolladores</h2>
       </div>
 
-      <ion-item class="item" ng-repeat="people in members"  ng-click="clicker(people)">
+      <ion-item class="item" ng-repeat="people in members"  ng-click="showPopup(people)">
         <a  class="item item-avatar" >
           <img src="{{people.image}}">
           <h2>{{people.name}}</h2>

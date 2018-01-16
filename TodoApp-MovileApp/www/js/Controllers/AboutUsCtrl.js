@@ -2,31 +2,21 @@ angular.module("TodoAppIntec")
 // Addig the  controller function
 // to the context module
 .controller('AboutUsCtrl', AboutUsCtrl);
-AboutUsCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal'];
-function AboutUsCtrl($scope, people, $ionicModal) {
-$scope.message = "work";
-$scope.members = people.all();
-
-console.log('klk');
-function  listClick(event, newValue) {
-console.log(newValue);
-this.selectedItem = newValue;  // don't forget to update the model here
-// ... do other stuff here ...}
-};
-console.log('klk');
-
-$ionicModal.fromTemplateUrl('templates/modal.html', {
-scope: $scope
-}).then(function(modal) {
-$scope.modal = modal;
-});
-
-$scope.clicker = function(item){
-    $scope.klk = item;
-  $scope.modal.show();
-};
-
-
-
-
+AboutUsCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal', '$ionicPopup'];
+function AboutUsCtrl($scope, people, $ionicModal, $ionicPopup) {
+            $scope.message = "work";
+            $scope.members = people.all();
+            $scope.showPopup = function(item) {              
+              $scope.item = item;
+              var myPopup = $ionicPopup.show({
+                template: '<img style="width:100%;" border="0" src="{{item.image}}"></img>',
+                title: item.name,
+                scope: $scope,
+                buttons: [
+                  { text: 'Cerrar',
+                    type: 'button-positive' }
+                ]
+              });
+            
+             };
 }
