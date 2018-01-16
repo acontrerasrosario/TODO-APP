@@ -3,8 +3,8 @@ angular.module("TodoAppIntec")
   // Addig the  controller function
   // to the context module
   .controller('NotesCtrl', NotesCtrl);
-NotesCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal','$http', 'Configs', '$rootScope','ionicDatePicker','AuthService','$state'];
-function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDatePicker,AuthService,$state) {
+NotesCtrl.$inject = ['$scope','$ionicPopup', '$ionicLoading','AboutUsServ', '$ionicModal','$http', 'Configs', '$rootScope','ionicDatePicker','AuthService','$state'];
+function NotesCtrl($scope,$ionicPopup,$ionicLoading, people, $ionicModal,$http,configs,$rootScope,ionicDatePicker,AuthService,$state) {
   if (!AuthService.User.isAuthenticated)
             $state.go('login', {}, {reload: true});
 
@@ -68,7 +68,6 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
       }
     }
     if (missing.length > 0) {
-      $scope.modalCreate.hide();
       var myPopup = $ionicPopup.show({
         title: 'Error',
         subTitle: missingmsj,
@@ -85,13 +84,11 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
       $scope.MyNotes.push($scope.newNote);
       $rootScope.Notes = $scope.MyNotes;
       $scope.newNote = {};
-      $scope.modalCreate.hide();
-      $ionicLoading.hide();
-    }
-
-    
-    $http.post(configs.API_ROUTE+'api/notes/createNewNote', $scope.newNote).then(
+  
+      $http.post(configs.API_ROUTE+'api/notes/createNewNote', $scope.newNote).then(
         (response)=> {
+          $scope.modalCreate.hide();
+          $ionicLoading.hide();
           console.log('AddNewNote success',response);
           var date = new Date(response.data.dueDate);
           var day = date.getDate();
@@ -106,6 +103,10 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
           console.log('AddNewNote error',response);
         }
       );
+    }
+
+    
+
   }
   var ipObj1 = {
     callback: function (val) {  //Mandatory 
