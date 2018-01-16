@@ -108,14 +108,12 @@ angular.module('TodoAppIntec', ['ionic','ionic-datepicker'])
         }
       }
   })
-  .state('tab.aboutUs', {
+  .state('aboutUs', {
     url: '/aboutUs',
-    views: {
-      'tab-aboutUs': {
-        templateUrl: 'templates/tab-aboutUs.html',
-        controller:'AboutUsCtrl'
-      }
-    }
+    templateUrl: 'templates/aboutUs.html',
+    controller:'AboutUsCtrl'
+      
+    
   });
 
   // if none of the above states are matched, use this as the fallback

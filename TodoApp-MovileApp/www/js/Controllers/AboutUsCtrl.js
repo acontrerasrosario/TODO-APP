@@ -2,8 +2,8 @@ angular.module("TodoAppIntec")
 // Addig the  controller function
 // to the context module
 .controller('AboutUsCtrl', AboutUsCtrl);
-AboutUsCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal', '$ionicPopup'];
-function AboutUsCtrl($scope, people, $ionicModal, $ionicPopup) {
+AboutUsCtrl.$inject = ['$scope', 'AboutUsServ', 'AuthService', '$http', 'Configs', '$ionicPopup', '$state', '$ionicLoading'];
+function AboutUsCtrl($scope, people, AuthService, $http, configs, $ionicPopup, $state, $ionicLoading) {
             $scope.message = "work";
             $scope.members = people.all();
             console.log('klk');
@@ -20,4 +20,8 @@ function AboutUsCtrl($scope, people, $ionicModal, $ionicPopup) {
               });
             
              };
+             $scope.goBack = function(item) { 
+                $state.go('tab.settings', {}, {reload: true});
+             }
+
 }
