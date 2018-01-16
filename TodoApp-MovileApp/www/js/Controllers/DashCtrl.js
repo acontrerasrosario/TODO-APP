@@ -62,9 +62,8 @@
                         var day = date.getDate();
                         var monthIndex = date.getMonth();
                         var year = date.getFullYear();
-                        element.dueDate = day + '/' + (monthIndex+1) + '/' + year;
+                        element.dueDate = (monthIndex+1)  + '/' + day + '/' + year;
                     });
-
                   $rootScope.Notes = _.sortBy(arregloFix, 'dueDate'); 
                 },
                 (response) => {
@@ -81,17 +80,19 @@
                 {no:3, name:'Tags'}
             ];
 
-              $scope.ChangeSort = () => {
-                // console.log($scope.SortSeleted);
-                    switch($scope.SortSeleted) {
-                        case 1:
-                            $rootScope.Notes = _.sortBy(arregloFix, 'dueDate','ASC'); 
-                        case 2:
-                            $rootScope.Notes = _.sortBy(arregloFix, 'dueDate','DESC'); 
-                        case 3:
-                            $rootScope.Notes = _.sortBy(arregloFix, 'tagID', $scope.TagSeleted); 
-                    }
-              }
+            $scope.ChangeSort = (number) => {
+                  switch(number) {
+                      case 1:
+                        $rootScope.Notes = (_.sortBy($rootScope.Notes, 'dueDate')).reverse();
+                          break; 
+                      case 2:
+                          $rootScope.Notes = _.sortBy($rootScope.Notes, 'dueDate');
+                          break; 
+                      case 3:
+                          $rootScope.Notes = _.sortBy($rootScope.Notes, 'tagID');
+                          break; 
+                  }
+            }
 
             $rootScope.Notes;
     }

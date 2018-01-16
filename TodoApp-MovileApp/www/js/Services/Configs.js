@@ -9,8 +9,6 @@
 
     function factory($http) {
         this.API_ROUTE = 'http://localhost:52521/';
-
-
         return this;
     }
 })();
