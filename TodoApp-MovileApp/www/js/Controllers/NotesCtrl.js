@@ -41,7 +41,7 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
         var day = date.getDate();
         var monthIndex = date.getMonth();
         var year = date.getFullYear();
-        element.dueDate = day + '/' + (monthIndex+1) + '/' + year;
+        element.dueDate =  (monthIndex+1)  + '/' + day + '/' + year;
       });
       $scope.MyNotes = arregloFix;
       $rootScope.Notes = $scope.MyNotes; 
@@ -126,7 +126,36 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
     templateType: 'popup'       //Optional 
   };
 
-  var ipObj2 = {
+  // var ipObj2 = {
+  //   callback: function (val) {  //Mandatory 
+  //     console.log('Return value from the datepicker popup is : ' + val, new Date($scope.noteToUpdate.dueDate));
+  //     function convertDate(inputFormat) {
+  //       function pad(s) { return (s < 10) ? '0' + s : s; }
+  //       var d = new Date(inputFormat);
+  //       return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
+  //     }
+  //     $scope.noteToUpdate.dueDate = convertDate(new Date(val));
+  //   },
+  //   from: new Date(2012, 1, 1), //Optional 
+  //   to: new Date(2500, 10, 30), //Optional 
+  //   inputDate: new Date(),      //Optional 
+  //   mondayFirst: true,          //Optional 
+  //   disableWeekdays: [0],       //Optional 
+  //   closeOnSelect: false,       //Optional 
+  //   templateType: 'popup'       //Optional 
+  // };
+
+  $scope.openDatePicker = function(){
+    ionicDatePicker.openDatePicker(ipObj1);
+  };
+
+  $scope.openDatePicker2 = function(){
+    debugger;
+    var x = new Date($scope.noteToUpdate.dueDate);
+
+    console.log(x);
+
+    var ipObj2 = {
     callback: function (val) {  //Mandatory 
       console.log('Return value from the datepicker popup is : ' + val, new Date($scope.noteToUpdate.dueDate));
       function convertDate(inputFormat) {
@@ -138,18 +167,14 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
     },
     from: new Date(2012, 1, 1), //Optional 
     to: new Date(2500, 10, 30), //Optional 
-    inputDate: new Date($scope.newNote.dueDate),      //Optional 
+    inputDate: x,      //Optional 
     mondayFirst: true,          //Optional 
     disableWeekdays: [0],       //Optional 
     closeOnSelect: false,       //Optional 
     templateType: 'popup'       //Optional 
   };
 
-  $scope.openDatePicker = function(){
-    ionicDatePicker.openDatePicker(ipObj1);
-  };
 
-  $scope.openDatePicker2 = function(){
     ionicDatePicker.openDatePicker(ipObj2);
   };
 
@@ -246,17 +271,19 @@ function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDat
     {no:3, name:'Tags'}
 ];
 
-  $scope.ChangeSort = () => {
-    // console.log($scope.SortSeleted);
-        switch($scope.SortSeleted) {
-            case 1:
-                $rootScope.Notes = _.sortBy(arregloFix, 'dueDate','ASC'); 
-            case 2:
-                $rootScope.Notes = _.sortBy(arregloFix, 'dueDate','DESC'); 
-            case 3:
-                $rootScope.Notes = _.sortBy(arregloFix, 'tagID', $scope.TagSeleted); 
-        }
-  }
-
+$scope.ChangeSort = (number) => {
+  // debugger;
+      switch(number) {
+          case 1:
+            $scope.MyNotes = (_.sortBy($scope.MyNotes, 'dueDate')).reverse();
+              break; 
+          case 2:
+              $scope.MyNotes = _.sortBy($scope.MyNotes, 'dueDate');
+              break; 
+          case 3:
+              $scope.MyNotes = _.sortBy($scope.MyNotes, 'tagID');
+              break; 
+      }
+}
 
 }
