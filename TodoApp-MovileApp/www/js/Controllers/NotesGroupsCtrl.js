@@ -7,7 +7,6 @@
     function NotesGroupsCtrl($scope, people,$ionicModal,AuthService,$state) {
      // if (!AuthService.User.isAuthenticated)
      // $state.go('login', {}, {reload: true});
-      
             $scope.newTag = {
                 "tagName":null
             }

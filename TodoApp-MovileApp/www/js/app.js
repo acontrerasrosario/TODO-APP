@@ -99,6 +99,15 @@ angular.module('TodoAppIntec', ['ionic','ionic-datepicker'])
     templateUrl: 'templates/SignUp.html',
     controller: 'SignUpController'
   })
+  .state('tab.settings', {
+      url: '/settings',
+      views: {
+        'tab-settings': {
+          templateUrl: 'templates/tab-settings.html',
+          controller:'SettingsCtrl'
+        }
+      }
+  })
   .state('tab.aboutUs', {
     url: '/aboutUs',
     views: {

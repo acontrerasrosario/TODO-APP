@@ -6,6 +6,7 @@ AboutUsCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal', '$ionicPopup'];
 function AboutUsCtrl($scope, people, $ionicModal, $ionicPopup) {
             $scope.message = "work";
             $scope.members = people.all();
+            console.log('klk');
             $scope.showPopup = function(item) {              
               $scope.item = item;
               var myPopup = $ionicPopup.show({
