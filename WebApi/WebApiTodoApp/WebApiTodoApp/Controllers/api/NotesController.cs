@@ -49,7 +49,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
             }
         }
 
@@ -68,7 +68,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
             }
         }
 
@@ -103,7 +103,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { error = e, data = newNote });
             }
         }
 
@@ -134,7 +134,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
             }
         }
 
@@ -161,7 +161,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
             }
         }
 
@@ -189,7 +189,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
             }
         }
 
@@ -213,7 +213,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
             }
         }
 
@@ -232,7 +232,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
             }
         }
 
@@ -252,7 +252,7 @@ namespace WebApiTodoApp.Controllers.api
             }
             catch (Exception e)
             {
-                return Request.CreateResponse(HttpStatusCode.BadGateway, e);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
             }
         }
 
