@@ -13,6 +13,6 @@ function SettingsCtrl($scope, people, AuthService, $http, configs, $ionicPopup, 
               
         $scope.clickForm = () =>{
             console.log('klk');
-            $state.go('aboutUs', {}, {reload: true});    
+            $state.go('userForm', {}, {reload: true});    
          };
 }

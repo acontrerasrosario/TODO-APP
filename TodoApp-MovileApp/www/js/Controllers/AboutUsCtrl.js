@@ -20,7 +20,7 @@ function AboutUsCtrl($scope, people, AuthService, $http, configs, $ionicPopup, $
               });
             
              };
-             $scope.goBack = function(item) { 
+             $scope.goBack = function() { 
                 $state.go('tab.settings', {}, {reload: true});
              }
 

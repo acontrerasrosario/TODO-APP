@@ -112,9 +112,14 @@ angular.module('TodoAppIntec', ['ionic','ionic-datepicker'])
     url: '/aboutUs',
     templateUrl: 'templates/aboutUs.html',
     controller:'AboutUsCtrl'
-      
-    
-  });
+  })
+  .state('userForm', {
+    url: '/userForm',
+    templateUrl: 'templates/UserForm.html',
+    controller:'FormCtrl'
+  })
+  
+  ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
