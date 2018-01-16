@@ -8,7 +8,7 @@ angular.module('TodoAppIntec')
                 {
                   id: 0,
                   name: 'Andrea L. Polanco',
-                  description: 'You on your way?',
+                  description: 'Nacida para vivir de la tecnologia. Me encanta ver los nuevos que la misma. Tengo como objetivo destacarme en el campo de los videojuegos.',
                   image: 'img/andrea.jpeg'
                 },
                 {
@@ -21,7 +21,7 @@ angular.module('TodoAppIntec')
                 {
                   id: 2,
                   name: 'Brawny Javier Mateo',
-                  description: 'You on your way?',
+                  description: 'Proximamente',
                   image: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAseAAAAJDdkZmNjNzUwLTJhNzgtNGNjYS04YmY1LWIwNjdkNGQzZWQ4OA.jpg'
                 }
             ];

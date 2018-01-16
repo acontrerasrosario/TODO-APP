@@ -6,7 +6,7 @@ angular.module("TodoAppIntec")
 NotesCtrl.$inject = ['$scope', 'AboutUsServ', '$ionicModal','$http', 'Configs', '$rootScope','ionicDatePicker','AuthService','$state'];
 function NotesCtrl($scope, people, $ionicModal,$http,configs,$rootScope,ionicDatePicker,AuthService,$state) {
   if (!AuthService.User.isAuthenticated)
-            $state.go('login', {}, {reload: true});
+  //          $state.go('login', {}, {reload: true});
 
   $scope.newNote = {
             "title":null,

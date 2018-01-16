@@ -1,0 +1,47 @@
+<ion-view view-title="Formulario de Usuario">
+  <ion-content>
+    <form name="myForm" novalidate>
+      <div class="padding logo">
+        <img src="img/applogo.jpg"
+             style="width:100px;
+             align-content:center;
+             height:auto;
+             align-self:center;
+             display:block;">
+      </div>
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Nombre</span>
+          <input type="text" name="name" ng-model="user.name" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Apellido</span>
+          <input type="text" name="lastname" ng-model="user.lastname" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" name="email" ng-model="user.email" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Nombre de Usuario</span>
+          <input type="text" name="username" ng-model="user.credential" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Contraseña</span>
+          <input type="password" name="password" ng-model="user.password" required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Repetir contraseña</span>
+          <input type="password" name="password" ng-model="user.repassword" required>
+        </label>
+      </div>
+      <div class="padding errors">
+        <p ng-show="user.password !=user.repassword ">* Las contraseñas no concuerdan!</p>
+      </div>
+      <div class="padding">
+        <button class="button button-block button-positive"  ng-click="">Guardar</button>
+        <button class="button button-block button-assertive"  ng-click="goBack();">Volver</button>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>
